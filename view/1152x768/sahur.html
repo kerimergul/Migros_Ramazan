@@ -1,0 +1,380 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LED Clock</title>
+    <link href="http://www.cssscript.com/wp-includes/css/sticky.css" rel="stylesheet" type="text/css">
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: white;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            /* min-width: 900px; */
+        }
+
+        .bg {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: center;
+            background-size: cover;
+            overflow: hidden;
+            vertical-align: bottom;
+            background-image: url('../../../assets/1152_768_sahur.png');
+        }
+
+        .img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: center;
+            background-size: cover;
+            overflow: hidden;
+            vertical-align: bottom;
+        }
+
+
+        .clock {
+            height: 12.7vh;
+            position: absolute;
+            top: 43.7%;
+            left: 60.6%;
+            width: 35.7vw;
+            margin-left: 0px;
+            margin-top: 0px;
+            text-align: center;
+            /* background: blue; */
+        }
+
+        .digit {
+            width: 51px;
+            height: 85px;
+            margin: 5px 3px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .digit .segment {
+            background: #f4831b;
+            border-radius: 5px;
+            position: absolute;
+            opacity: 0.15;
+            transition: opacity 0.2s;
+            -webkit-transition: opacity 0.2s;
+            -ms-transition: opacity 0.2s;
+            -moz-transition: opacity 0.2s;
+            -o-transition: opacity 0.2s;
+        }
+
+        .digit .segment.on,
+        .separator {
+            opacity: 1;
+            box-shadow: 0 0 50px rgba(244, 131, 27, 0.7);
+            transition: opacity 0s;
+            -webkit-transition: opacity 0s;
+            -ms-transition: opacity 0s;
+            -moz-transition: opacity 0s;
+            -o-transition: opacity 0s;
+        }
+
+        .first-separator {
+            width: 8px;
+            height: 8px;
+            background: #f4831b;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+            top: -8vh;
+            left: 0.55vw;
+        }
+
+        .second-separator {
+            width: 8px;
+            height: 8px;
+            background: #f4831b;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+            top: -2.5vh;
+            left: -0.46vw;
+        }
+
+        .digit .segment:nth-child(1) {
+            top: 5px;
+            left: 10px;
+            right: 10px;
+            height: 5px;
+        }
+
+        .digit .segment:nth-child(2) {
+            top: 10px;
+            right: 5px;
+            width: 5px;
+            height: 32.5px;
+            height: calc(50% - 12.5px);
+        }
+
+        .digit .segment:nth-child(3) {
+            bottom: 10px;
+            right: 5px;
+            width: 5px;
+            height: 32.5px;
+            height: calc(50% - 12.5px);
+        }
+
+        .digit .segment:nth-child(4) {
+            bottom: 5px;
+            right: 10px;
+            height: 5px;
+            left: 10px;
+        }
+
+        .digit .segment:nth-child(5) {
+            bottom: 10px;
+            left: 5px;
+            width: 5px;
+            height: 32.5px;
+            height: calc(50% - 12.5px);
+        }
+
+        .digit .segment:nth-child(6) {
+            top: 10px;
+            left: 5px;
+            width: 5px;
+            height: 32.5px;
+            height: calc(50% - 12.5px);
+        }
+
+        .digit .segment:nth-child(7) {
+            bottom: 47.5px;
+            bottom: calc(50% - 2.5px);
+            right: 10px;
+            left: 10px;
+            height: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="bg" class="bg">
+        <div class="clock">
+            <div class="digit hours">
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+            </div>
+
+            <div class="digit hours">
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+            </div>
+
+            <div class="first-separator"></div>
+            <div class="second-separator"></div>
+
+            <div class="digit minutes">
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+            </div>
+
+            <div class="digit minutes">
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+            </div>
+
+            <div class="first-separator"></div>
+            <div class="second-separator"></div>
+
+            <div class="digit seconds">
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+            </div>
+
+            <div class="digit seconds">
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var digitSegments = [
+            [1, 2, 3, 4, 5, 6],
+            [2, 3],
+            [1, 2, 7, 5, 4],
+            [1, 2, 7, 3, 4],
+            [6, 7, 2, 3],
+            [1, 6, 7, 3, 4],
+            [1, 6, 5, 4, 3, 7],
+            [1, 2, 3],
+            [1, 2, 3, 4, 5, 6, 7],
+            [1, 2, 7, 3, 6]
+        ]
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('../../../common/ezan_vakitler.json')
+                .then(response => response.json())
+                .then(VAKITLER_JSON => {
+                    var dateEzan = getEzanVakit(VAKITLER_JSON);
+
+                    var _hours = document.querySelectorAll('.hours');
+                    var _minutes = document.querySelectorAll('.minutes');
+                    var _seconds = document.querySelectorAll('.seconds');
+
+                    setInterval(function () {
+                        var date = new Date();
+                        var diffDate = new Date(dateEzan.getTime() - date.getTime());
+                        var hours = diffDate.getUTCHours(), minutes = diffDate.getUTCMinutes(), seconds = diffDate.getUTCSeconds();
+
+                        setNumber(_hours[0], Math.floor(hours / 10), 1);
+                        setNumber(_hours[1], hours % 10, 1);
+
+                        setNumber(_minutes[0], Math.floor(minutes / 10), 1);
+                        setNumber(_minutes[1], minutes % 10, 1);
+
+                        setNumber(_seconds[0], Math.floor(seconds / 10), 1);
+                        setNumber(_seconds[1], seconds % 10, 1);
+                    }, 1000);
+                }).catch(error => console.log(error));
+
+            var setNumber = function (digit, number, on) {
+                var segments = digit.querySelectorAll('.segment');
+                var current = parseInt(digit.getAttribute('data-value'));
+
+                // only switch if number has changed or wasn't set
+                if (!isNaN(current) && current != number) {
+                    // unset previous number
+                    digitSegments[current].forEach(function (digitSegment, index) {
+                        setTimeout(function () {
+                            segments[digitSegment - 1].classList.remove('on');
+                        }, index * 45)
+                    });
+                }
+
+                if (isNaN(current) || current != number) {
+                    // set new number after
+                    setTimeout(function () {
+                        digitSegments[number].forEach(function (digitSegment, index) {
+                            setTimeout(function () {
+                                segments[digitSegment - 1].classList.add('on');
+                            }, index * 45)
+                        });
+                    }, 250);
+                    digit.setAttribute('data-value', number);
+                }
+            }
+
+            var getEzanVakit = function (VAKITLER_JSON) {
+                var curr_date = new Date();
+
+                let curr_yy = curr_date.getUTCFullYear();
+                let curr_mm = curr_date.getUTCMonth() + 1;
+                let curr_dd = curr_date.getUTCDate();
+
+                curr_mm = `${curr_mm}`.length == 1 ? `0${curr_mm}` : `${curr_mm}`
+                curr_dd = `${curr_dd}`.length == 1 ? `0${curr_dd}` : `${curr_dd}`
+
+                var date_str = `${curr_yy}-${curr_mm}-${curr_dd}`;
+                var curr_vakit = VAKITLER_JSON.find((e) => {
+                    if (e.date == date_str) {
+                        return e;
+                    }
+                });
+
+                var curr_sahur_str = curr_vakit["sahur"];
+                var curr_iftar_str = curr_vakit["iftar"];
+
+                const sahur_str = `${date_str}T${curr_sahur_str}:00`;
+                const sahur_date = new Date(sahur_str);
+
+                const iftar_str = `${date_str}T${curr_iftar_str}:00`;
+                const iftar_date = new Date(iftar_str);
+
+                var isSahur = false;
+                var isNextDaySahur = false;
+
+                var vakit = new Date();
+                if (sahur_date.getTime() > curr_date.getTime()) {
+                    isSahur = true;
+                    vakit = sahur_date;
+                } else {
+                    if (iftar_date.getTime() > curr_date.getTime()) {
+                        isSahur = false;
+                        vakit = iftar_date;
+                    } else {
+                        isNextDaySahur = true;
+                        isSahur = true;
+
+                        var next_date = new Date();
+                        next_date.setDate(curr_date.getDate() + 1);
+
+                        let next_yy = next_date.getUTCFullYear();
+                        let next_mm = next_date.getUTCMonth() + 1;
+                        let next_dd = next_date.getUTCDate();
+
+                        next_mm = `${next_mm}`.length == 1 ? `0${next_mm}` : `${next_mm}`
+                        next_dd = `${next_dd}`.length == 1 ? `0${next_dd}` : `${next_dd}`
+
+                        var next_str = `${next_yy}-${next_mm}-${next_dd}`;
+                        var next_vakit = VAKITLER_JSON.find((e) => {
+                            if (e.date == next_str) {
+                                return e;
+                            }
+                        });
+                        var next_sahur_str = next_vakit["sahur"];
+                        const sahur_next_str = `${next_str}T${next_sahur_str}:00`;
+                        vakit = new Date(sahur_next_str);
+                    }
+                }
+                return vakit;
+            }
+        })
+    </script>
+
+</body>
+
+</html>
