@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LED Clock</title>
+    <title>Migros Ramazan</title>
     <style>
         html,
         body {
@@ -269,6 +269,7 @@
                         var diffDate = new Date(dateEzan.getTime() - date.getTime());
 
                         var diffMinutes = diffDate.getMinutes();
+                        console.log(['diffMinutes', diffMinutes])
                         if (diffMinutes < 1) {
                             location.reload();
                         }
