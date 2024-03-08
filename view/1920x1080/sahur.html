@@ -270,7 +270,7 @@
 
                         var hours = diffDate.getUTCHours(), minutes = diffDate.getUTCMinutes(), seconds = diffDate.getUTCSeconds();
                         console.log(['hours', hours, 'minutes', minutes, 'seconds', seconds])
-                        if (hours < 5 && minutes < 4 && seconds < 5) {
+                        if (hours <= 5 && minutes <= 1 && seconds <= 5) {
                             console.log('refresh');
                             window.location.reload();
                         }
