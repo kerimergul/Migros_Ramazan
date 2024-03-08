@@ -81,18 +81,22 @@ const server = http.createServer(async (req, res) => {
         // Alınan sayfa ismini kullanarak dosya yolu oluştur
         var pathName = "";
         if (!`${pageName}`.includes('.png') && !`${pageName}`.includes('.json')) {
-            pageName = `${pageName}`.split('?')[0];
+            if (`${pageName}`.includes('?')) {
+                console.log(['pageName',pageName])
+                pageName = `${pageName}`.split('?')[0];
+            }
+
 
             pathName = getHtmlPath(pageName);
 
-            var newDirname = __dirname;
-            console.log(['__dirname', __dirname])
-            console.log(`${__dirname}`.includes('?'))
-            // if (`${__dirname}`.includes('?')) {
-            newDirname = `${__dirname}`.split('?')[0];
+            // var newDirname = __dirname;
+            // console.log(['__dirname', __dirname])
+            // console.log(`${__dirname}`.includes('?'))
+            // // if (`${__dirname}`.includes('?')) {
+            // newDirname = `${__dirname}`.split('?')[0];
             // }
 
-            const filePath = path.join(newDirname, pathName);
+            const filePath = path.join(__dirname, pathName);
 
             console.log(['filePath', filePath])
 
