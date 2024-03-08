@@ -76,18 +76,20 @@ const getHtmlPath = (size) => {
 const server = http.createServer(async (req, res) => {
     try {
         // Gelen URL'den sayfa ismini al
-        const pageName = req.url.slice(1); // Başındaki '/' karakterini kaldır
+        var pageName = req.url.slice(1); // Başındaki '/' karakterini kaldır
 
         // Alınan sayfa ismini kullanarak dosya yolu oluştur
         var pathName = "";
         if (!`${pageName}`.includes('.png') && !`${pageName}`.includes('.json')) {
+            pageName = `${pageName}`.split('?')[0];
+
             pathName = getHtmlPath(pageName);
 
             var newDirname = __dirname;
             console.log(['__dirname', __dirname])
             console.log(`${__dirname}`.includes('?'))
             // if (`${__dirname}`.includes('?')) {
-                newDirname = `${__dirname}`.split('?')[0];
+            newDirname = `${__dirname}`.split('?')[0];
             // }
 
             const filePath = path.join(newDirname, pathName);
