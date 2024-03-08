@@ -48,7 +48,7 @@ const getHtmlPath = (size) => {
             isSahur = true;
             fileName = "sahur.html"
         } else {
-            if (iftar_date.getTime() > curr_date.getTime()) {                
+            if (iftar_date.getTime() > curr_date.getTime()) {
                 isSahur = false;
                 fileName = "iftar.html";
             } else {
@@ -57,9 +57,9 @@ const getHtmlPath = (size) => {
                 fileName = "sahur.html"
             }
         }
-        // console.log(['isSahur', isSahur]);
-        // console.log(['isNextDaySahur', isNextDaySahur]);
-        // console.log(['fileName', fileName]);
+        console.log(['isSahur', isSahur]);
+        console.log(['isNextDaySahur', isNextDaySahur]);
+        console.log(['fileName', fileName]);
         var pathName = `./view/${size}/${fileName}`;
         // console.log(['pathName', pathName])
         console.timeEnd("getHtmlPath");
