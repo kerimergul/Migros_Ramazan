@@ -85,7 +85,7 @@ const server = http.createServer(async (req, res) => {
 
             const filePath = path.join(__dirname, pathName);
 
-            // console.log(['filePath', filePath])
+            console.log(['filePath', filePath])
 
             // Dosya var mı kontrol et
             await fs.access(filePath, fs.constants.F_OK);
