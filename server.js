@@ -82,9 +82,14 @@ const server = http.createServer(async (req, res) => {
         var pathName = "";
         if (!`${pageName}`.includes('.png') && !`${pageName}`.includes('.json')) {
             pathName = getHtmlPath(pageName);
-            
 
-            const filePath = path.join(__dirname, pathName);
+            var newDirname = __dirname;
+            if (`${__dirname}`.includes('?')) {
+                newDirname = `${__dirname}`.split('?')[0];
+            }
+
+
+            const filePath = path.join(newDirname, pathName);
 
             console.log(['filePath', filePath])
 
