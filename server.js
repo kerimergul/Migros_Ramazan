@@ -39,9 +39,9 @@ const getHtmlPath = (size) => {
         var isSahur = false;
         var isNextDaySahur = false;
 
-        // console.log(['sahur_date', sahur_date.toString()])
-        // console.log(['iftar_date', iftar_date.toString()])
-        // console.log(['curr_date', curr_date.toString()])
+        console.log(['sahur_date', sahur_date.toString()])
+        console.log(['iftar_date', iftar_date.toString()])
+        console.log(['curr_date', curr_date.toString()])
 
         var fileName = "iftar.html";
         if (sahur_date.getTime() > curr_date.getTime()) {
