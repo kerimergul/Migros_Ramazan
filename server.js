@@ -84,10 +84,11 @@ const server = http.createServer(async (req, res) => {
             pathName = getHtmlPath(pageName);
 
             var newDirname = __dirname;
-            if (`${__dirname}`.includes('?')) {
+            console.log(['__dirname', __dirname])
+            console.log(`${__dirname}`.includes('?'))
+            // if (`${__dirname}`.includes('?')) {
                 newDirname = `${__dirname}`.split('?')[0];
-            }
-
+            // }
 
             const filePath = path.join(newDirname, pathName);
 
