@@ -270,7 +270,7 @@
 
                         var hours = diffDate.getUTCHours(), minutes = diffDate.getUTCMinutes(), seconds = diffDate.getUTCSeconds();
                         console.log(['hours', hours, 'minutes', minutes])
-                        if (hours < 1 && minutes < 1) {
+                        if (hours < 5 && minutes < 7 && seconds < 5) {
                             location.reload();
                         }
                         setNumber(_hours[0], Math.floor(hours / 10), 1);
