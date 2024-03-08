@@ -9,9 +9,10 @@ const getHtmlPath = (size) => {
     try {
         // console.log(['size', size])
         console.time("getHtmlPath")
-       
+
         var curr_date = new Date();
-   
+        curr_date.setHours(curr_date.getHours() + 3);
+
         let curr_yy = curr_date.getUTCFullYear();
         let curr_mm = curr_date.getUTCMonth() + 1;
         let curr_dd = curr_date.getUTCDate();
