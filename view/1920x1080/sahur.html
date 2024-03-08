@@ -268,12 +268,11 @@
                         var date = new Date();
                         var diffDate = new Date(dateEzan.getTime() - date.getTime());
 
-                        var diffMinutes = diffDate.getMinutes();
-                        console.log(['diffMinutes', diffMinutes])
-                        if (diffMinutes < 1) {
+                        var hours = diffDate.getUTCHours(), minutes = diffDate.getUTCMinutes(), seconds = diffDate.getUTCSeconds();
+                        console.log(['hours', hours, 'minutes', minutes])
+                        if (hours < 1 && minutes < 1) {
                             location.reload();
                         }
-                        var hours = diffDate.getUTCHours(), minutes = diffDate.getUTCMinutes(), seconds = diffDate.getUTCSeconds();
                         setNumber(_hours[0], Math.floor(hours / 10), 1);
                         setNumber(_hours[1], hours % 10, 1);
 
