@@ -9,8 +9,9 @@ const getHtmlPath = (size) => {
     try {
         // console.log(['size', size])
         console.time("getHtmlPath")
-        var curr_date = new Date();
-
+        const timeZone = 'Europe/Istanbul'
+        var newDate = new Date();
+        var curr_date = new Intl.DateTimeFormat('en-US', { timeZone }).format(newDate);
         let curr_yy = curr_date.getUTCFullYear();
         let curr_mm = curr_date.getUTCMonth() + 1;
         let curr_dd = curr_date.getUTCDate();
