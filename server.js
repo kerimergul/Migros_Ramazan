@@ -81,24 +81,12 @@ const server = http.createServer(async (req, res) => {
         // Alınan sayfa ismini kullanarak dosya yolu oluştur
         var pathName = "";
         if (!`${pageName}`.includes('.png') && !`${pageName}`.includes('.json')) {
-            if (`${pageName}`.includes('?')) {
-                console.log(['pageName',pageName])
+            if (`${pageName}`.includes('?')) {               
                 pageName = `${pageName}`.split('?')[0];
             }
-
-
             pathName = getHtmlPath(pageName);
 
-            // var newDirname = __dirname;
-            // console.log(['__dirname', __dirname])
-            // console.log(`${__dirname}`.includes('?'))
-            // // if (`${__dirname}`.includes('?')) {
-            // newDirname = `${__dirname}`.split('?')[0];
-            // }
-
             const filePath = path.join(__dirname, pathName);
-
-            console.log(['filePath', filePath])
 
             // Dosya var mı kontrol et
             await fs.access(filePath, fs.constants.F_OK);

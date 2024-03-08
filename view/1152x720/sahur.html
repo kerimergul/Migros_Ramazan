@@ -51,8 +51,8 @@
         .clock {
             height: 12.6vh;
             position: absolute;
-            top: 43.6%;
-            left: 58.2%;
+            top: 44.2%;
+            left: 59.4%;
             width: 37vw;
             margin-left: 0px;
             margin-top: 0px;
@@ -267,8 +267,12 @@
                     setInterval(function () {
                         var date = new Date();
                         var diffDate = new Date(dateEzan.getTime() - date.getTime());
-                        var hours = diffDate.getUTCHours(), minutes = diffDate.getUTCMinutes(), seconds = diffDate.getUTCSeconds();
 
+                        var diffMinutes = diffDate.getMinutes();
+                        if (diffMinutes < 1) {
+                            location.reload();
+                        }
+                        var hours = diffDate.getUTCHours(), minutes = diffDate.getUTCMinutes(), seconds = diffDate.getUTCSeconds();
                         setNumber(_hours[0], Math.floor(hours / 10), 1);
                         setNumber(_hours[1], hours % 10, 1);
 

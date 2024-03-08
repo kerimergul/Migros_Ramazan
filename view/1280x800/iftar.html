@@ -52,7 +52,7 @@
             height: 12.7vh;
             position: absolute;
             top: 43.7%;
-            left: 60.6%;
+            left: 60%;
             width: 35.7vw;
             margin-left: 0px;
             margin-top: 0px;
@@ -267,8 +267,12 @@
                     setInterval(function () {
                         var date = new Date();
                         var diffDate = new Date(dateEzan.getTime() - date.getTime());
-                        var hours = diffDate.getUTCHours(), minutes = diffDate.getUTCMinutes(), seconds = diffDate.getUTCSeconds();
 
+                        var diffMinutes = diffDate.getMinutes();
+                        if (diffMinutes < 1) {
+                            location.reload();
+                        }
+                        var hours = diffDate.getUTCHours(), minutes = diffDate.getUTCMinutes(), seconds = diffDate.getUTCSeconds();
                         setNumber(_hours[0], Math.floor(hours / 10), 1);
                         setNumber(_hours[1], hours % 10, 1);
 
